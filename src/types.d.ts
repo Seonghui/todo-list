@@ -13,3 +13,5 @@ type DeleteTodo = (selectedTodo: Todo) => void;
 type EditTodo = (selectedTodo: Todo, text: string) => void;
 
 type ChangeTodo = (input: string) => void;
+
+type ClickFilter = (input: string) => void;

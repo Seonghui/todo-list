@@ -106,8 +106,6 @@ export const todosActions = {
   edit
 };
 
-// reducers
-
 const initialState: TodoState = {
   todoItems: [
     { text: "banana", complete: true, date: new Date() },
