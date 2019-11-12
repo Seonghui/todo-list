@@ -2,21 +2,21 @@ import React from "react";
 import { TodoListItem } from "./TodoListItem";
 
 interface TodoListProps {
-  todos: Array<Todo>;
+  todoItems: Array<Todo>;
   toggleTodo: ToggleTodo;
   editTodo: EditTodo;
   deleteTodo: DeleteTodo;
 }
 
 export const TodoList: React.FC<TodoListProps> = ({
-  todos,
+  todoItems,
   toggleTodo,
   editTodo,
   deleteTodo
 }) => {
   return (
     <ul>
-      {todos.map(todo => {
+      {todoItems.map(todo => {
         return (
           <TodoListItem
             key={todo.text}
