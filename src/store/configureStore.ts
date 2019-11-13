@@ -13,7 +13,10 @@ export default function configureStore(): Store<StoreState> {
 
   store.subscribe(() => {
     saveState({
-      todos: store.getState().todos
+      todos: {
+        input: '',
+        todoItems: store.getState().todos.todoItems
+      }
     });
   });
   return store;

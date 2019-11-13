@@ -25,7 +25,7 @@ export const TodoList: React.FC<TodoListProps> = ({
         notCompletedItems.map(todo => {
           return (
             <TodoListItem
-              key={todo.text}
+              key={todo.id}
               todo={todo}
               toggleTodo={toggleTodo}
               editTodo={editTodo}
@@ -37,7 +37,7 @@ export const TodoList: React.FC<TodoListProps> = ({
         completedItems.map(todo => {
           return (
             <TodoListItem
-              key={todo.text}
+              key={todo.id}
               todo={todo}
               toggleTodo={toggleTodo}
               editTodo={editTodo}

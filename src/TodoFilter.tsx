@@ -2,14 +2,30 @@ import React from "react";
 
 interface TodoFilterProps {
   clickFilter: ClickFilter;
+  filter: string;
 }
 
-export const TodoFilter: React.FC<TodoFilterProps> = ({ clickFilter }) => {
+export const TodoFilter: React.FC<TodoFilterProps> = ({ clickFilter, filter }) => {
   return (
     <div>
-      <button onClick={() => clickFilter("all")}>all</button>
-      <button onClick={() => clickFilter("active")}>active</button>
-      <button onClick={() => clickFilter("completed")}>completed</button>
+      <button
+        className={filter === 'all' ? 'active' : undefined}
+        onClick={() => clickFilter("all")}
+      >
+        all
+      </button>
+      <button
+        className={filter === 'active' ? 'active' : undefined}
+        onClick={() => clickFilter("active")}
+      >
+        active
+      </button>
+      <button
+        className={filter === 'completed' ? 'active' : undefined}
+        onClick={() => clickFilter("completed")}
+      >
+        completed
+      </button>
     </div>
   );
 };

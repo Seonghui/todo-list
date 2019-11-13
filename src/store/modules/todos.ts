@@ -1,7 +1,10 @@
+const uuidv4 = require('uuid/v4');
+
 export interface TodoState {
   todoItems: Array<Todo>;
   input: string;
 }
+
 
 export const CREATE_TODO = "todo/CREATE_TODO";
 export const CHANGE_INPUT = "todo/CHANGE_INPUT";
@@ -54,6 +57,7 @@ function create(text: string) {
   return {
     type: CREATE_TODO,
     payload: {
+      id: uuidv4(),
       text: text,
       complete: false,
       date: new Date()
@@ -107,11 +111,7 @@ export const todosActions = {
 };
 
 const initialState: TodoState = {
-  todoItems: [
-    { text: "banana", complete: true, date: new Date() },
-    { text: "apple", complete: false, date: new Date() },
-    { text: "kiwi", complete: false, date: new Date() }
-  ],
+  todoItems: [],
   input: ""
 };
 

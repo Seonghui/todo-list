@@ -50,7 +50,7 @@ const TodoListContainer: React.FC<TodoListContainerProps> = ({
   return (
     <div className="container">
       <AddTodoForm addTodo={addTodo} input={input} changeInput={changeInput} />
-      <TodoFilter clickFilter={clickFilter} />
+      <TodoFilter clickFilter={clickFilter} filter={filter} />
       <TodoList
         todoItems={todoItems}
         toggleTodo={toggleTodo}
