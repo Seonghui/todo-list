@@ -115,7 +115,7 @@ const initialState: TodoState = {
   input: ""
 };
 
-export function todoReducer(
+export function todosReducer(
   state = initialState,
   action: TodoActionTypes
 ): TodoState {
