@@ -1,0 +1,29 @@
+.todo-list-item {
+  background-color: $gray-color-2;
+  .item-header {
+    padding: 1rem;
+    span {
+      display: inline-block;
+      width: calc(100% - 2rem);
+      height: auto;
+      padding-left: 2rem;
+    }
+    &.complete {
+      span {
+        text-decoration: line-through;
+        opacity: 0.3;
+      }
+    }
+  }
+
+  .item-footer {
+    display: flex;
+    justify-content: space-between;
+    background-color: $gray-color-3;
+    padding: 0.5rem 1rem;
+  }
+}
+
+.todo-list-item + .todo-list-item {
+  margin-top: 1rem;
+}

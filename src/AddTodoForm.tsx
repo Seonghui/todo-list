@@ -1,4 +1,5 @@
 import React, { ChangeEvent, FormEvent } from "react";
+import { FaPlus } from "react-icons/fa";
 
 interface AddtodoFormProps {
   input: string;
@@ -21,10 +22,15 @@ export const AddTodoForm: React.FC<AddtodoFormProps> = ({
   };
 
   return (
-    <form>
-      <input type="text" value={input} onChange={handleChange} />
-      <button type="submit" onClick={handleSubmit}>
-        Add Todo
+    <form className="form">
+      <input
+        className="input-text"
+        type="text"
+        value={input}
+        onChange={handleChange}
+      />
+      <button className="button" type="submit" onClick={handleSubmit}>
+        <FaPlus />
       </button>
     </form>
   );

@@ -5,23 +5,26 @@ interface TodoFilterProps {
   filter: string;
 }
 
-export const TodoFilter: React.FC<TodoFilterProps> = ({ clickFilter, filter }) => {
+export const TodoFilter: React.FC<TodoFilterProps> = ({
+  clickFilter,
+  filter
+}) => {
   return (
-    <div>
+    <div className="todo-filter">
       <button
-        className={filter === 'all' ? 'active' : undefined}
+        className={filter === "all" ? "active" : undefined}
         onClick={() => clickFilter("all")}
       >
         all
       </button>
       <button
-        className={filter === 'active' ? 'active' : undefined}
+        className={filter === "active" ? "active" : undefined}
         onClick={() => clickFilter("active")}
       >
         active
       </button>
       <button
-        className={filter === 'completed' ? 'active' : undefined}
+        className={filter === "completed" ? "active" : undefined}
         onClick={() => clickFilter("completed")}
       >
         completed

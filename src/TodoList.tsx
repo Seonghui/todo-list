@@ -20,7 +20,7 @@ export const TodoList: React.FC<TodoListProps> = ({
   const notCompletedItems = todoItems.filter(todo => !todo.complete);
 
   return (
-    <ul>
+    <ul className="todo-list">
       {(filter === "active" || filter === "all") &&
         notCompletedItems.map(todo => {
           return (

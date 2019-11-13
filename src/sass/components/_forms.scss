@@ -1,0 +1,82 @@
+// form & input
+.form {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  .input-text {
+    width: 100%;
+    font-size: 1.5rem;
+    padding: 0.25rem 0;
+  }
+}
+
+// checkbox
+.checkbox {
+  position: absolute;
+  display: none;
+}
+
+.checkbox + label {
+  position: relative;
+  display: block;
+  padding-left: 30px;
+  cursor: pointer;
+
+  &:hover {
+    &:before {
+      animation-duration: 0.4s;
+      animation-fill-mode: both;
+      animation-name: hover-color;
+    }
+  }
+  &:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    content: "";
+    border: 1px solid $primary-color;
+  }
+  &:after {
+    position: absolute;
+    display: none;
+    content: "";
+  }
+}
+
+.checkbox:checked + label {
+  &:before {
+    animation-name: none;
+  }
+  &:after {
+    display: block;
+  }
+}
+
+.checkbox + label {
+  &:before {
+    border-radius: 3px;
+  }
+  &:after {
+    top: 2px;
+    left: 7px;
+    box-sizing: border-box;
+    width: 6px;
+    height: 12px;
+    transform: rotate(45deg);
+    border-width: 2px;
+    border-style: solid;
+    border-color: #fff;
+
+    border-top: 0;
+    border-left: 0;
+  }
+}
+.checkbox:checked + label {
+  &:before {
+    border: $primary-color;
+    background: $primary-color;
+  }
+}
