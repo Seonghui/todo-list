@@ -15,19 +15,19 @@ export const TodoFilter: React.FC<TodoFilterProps> = ({
         className={filter === "all" ? "active" : undefined}
         onClick={() => clickFilter("all")}
       >
-        all
+        전체
       </button>
       <button
         className={filter === "active" ? "active" : undefined}
         onClick={() => clickFilter("active")}
       >
-        active
+        미완료
       </button>
       <button
         className={filter === "completed" ? "active" : undefined}
         onClick={() => clickFilter("completed")}
       >
-        completed
+        완료
       </button>
     </div>
   );

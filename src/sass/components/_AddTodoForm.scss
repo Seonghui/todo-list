@@ -1,6 +1,12 @@
 form.add-todo-form {
+  margin-top: 1rem;
   textarea {
-    font-size: 1.5rem;
-    padding: 0.25rem 0;
+    font-size: 1rem;
+    padding: 0.5rem;
+  }
+  button {
+    width: 9rem;
+    margin-left: 1rem;
+    font-size: 2rem;
   }
 }

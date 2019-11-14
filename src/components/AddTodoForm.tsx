@@ -14,12 +14,13 @@ export const AddTodoForm: React.FC<AddtodoFormProps> = ({
 }) => {
   const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
     changeInput(e.target.value);
-    console.log(e.target.value);
   };
 
   const handleSubmit = (e: FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    addTodo(input);
+    if (input.trim()) {
+      addTodo(input.trim());
+    }
   };
 
   return (
@@ -30,7 +31,11 @@ export const AddTodoForm: React.FC<AddtodoFormProps> = ({
         onChange={handleChange}
         placeholder="할 일을 입력해 주세요."
       />
-      <button className="button" type="submit" onClick={handleSubmit}>
+      <button
+        className={`button ${!input.trim().length ? " disabled" : ""}`}
+        type="submit"
+        onClick={handleSubmit}
+      >
         <FaPlus />
       </button>
     </form>
