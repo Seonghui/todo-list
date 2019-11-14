@@ -22,7 +22,7 @@ export const TodoList: React.FC<TodoListProps> = ({
   return (
     <ul className="todo-list">
       {(filter === "active" || filter === "all") &&
-        notCompletedItems.map(todo => {
+        notCompletedItems.reverse().map(todo => {
           return (
             <TodoListItem
               key={todo.id}
@@ -34,7 +34,7 @@ export const TodoList: React.FC<TodoListProps> = ({
           );
         })}
       {(filter === "completed" || filter === "all") &&
-        completedItems.map(todo => {
+        completedItems.reverse().map(todo => {
           return (
             <TodoListItem
               key={todo.id}
