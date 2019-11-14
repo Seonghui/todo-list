@@ -1,9 +1,9 @@
-@import url("https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400,500,700&display=swap&subset=korean");
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500,700&display=swap&subset=korean");
 
 html,
 body {
   font-family: "Noto Sans KR", sans-serif;
-  font-weight: 400;
+  font-weight: $font-weight-regular;
   font-size: 14px;
   letter-spacing: 0;
   background-color: $primary-color;
@@ -22,24 +22,13 @@ a {
 
 input[type="text"],
 textarea {
-  appearance: none;
-  -webkit-appearance: none;
-  outline: none;
-  border: 0;
-  resize: none;
+  @extend %reset-form;
   color: $base-color;
   border-radius: $base-radius;
 }
 
 button,
 input[type="submit"] {
-  font-family: "Noto Sans KR", sans-serif;
-  appearance: none;
-  -webkit-appearance: none;
-  background: none;
-  border: none;
-  border-color: transparent;
-  border-radius: 0;
-  outline: 0;
+  @extend %reset-form;
   cursor: pointer;
 }

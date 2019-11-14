@@ -2,6 +2,7 @@ $breakpoint-mobile: "(max-width: 767px)";
 $breakpoint-desktop: "(min-width: 768px)";
 
 $white: #ffffff;
+$base-color: #74757b;
 $primary-color: #f86457;
 $sub-color: #ff867b;
 
@@ -10,10 +11,14 @@ $gray-color-2: #e0e8f5;
 $gray-color-3: #d6deed;
 $gray-color-4: #a6afbf;
 
-$base-color: #74757b;
-
-$primary-focus-color: #ff9d49;
-$primary-hover-color: #ffb77a;
-$primary-normal-color: #ffc695;
-
 $base-radius: 5px;
+
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+
+$font-size-tiny: 0.825rem;
+$font-size-base: 1rem;
+$font-size-large: 1.2rem;
+$font-size-larger: 1.5rem;
+$font-size-largest: 2rem;

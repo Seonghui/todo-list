@@ -6,8 +6,7 @@
 }
 .textarea {
   width: 100%;
-  font-family: "Noto Sans KR", sans-serif;
-  font-weight: 400;
+  font-weight: $font-weight-regular;
 }
 
 // checkbox
@@ -58,7 +57,7 @@
 
 .checkbox + label {
   &:before {
-    border-radius: 3px;
+    border-radius: $base-radius;
   }
   &:after {
     top: 2px;
@@ -69,7 +68,7 @@
     transform: rotate(45deg);
     border-width: 2px;
     border-style: solid;
-    border-color: #fff;
+    border-color: $white;
 
     border-top: 0;
     border-left: 0;

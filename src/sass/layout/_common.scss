@@ -5,13 +5,12 @@
 
 .container {
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  @extend %center;
   max-width: 960px;
   width: calc(100% - 2rem);
   height: 540px;
   padding: 2rem 0;
   background-color: $gray-color-1;
   box-sizing: border-box;
+  box-shadow: 0 0 10px 5px rgba($base-color, 0.3);
 }

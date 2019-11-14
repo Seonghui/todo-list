@@ -3,8 +3,8 @@
   background-color: $primary-color;
   color: $white;
   border-radius: $base-radius;
-  font-weight: 500;
-  font-size: 1rem;
+  font-weight: $font-weight-medium;
+  font-size: $font-size-base;
 
   &.disabled {
     background-color: $gray-color-4;

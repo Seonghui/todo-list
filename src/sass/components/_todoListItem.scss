@@ -5,7 +5,8 @@
     display: flex;
     justify-content: flex-start;
     textarea {
-      font-size: 1rem;
+      display: block;
+      font-size: $font-size-base;
       resize: none;
       text-decoration: underline;
       margin-left: 13px;
@@ -15,9 +16,6 @@
       overflow: auto;
       height: auto;
       box-sizing: border-box;
-
-      display: block;
-      min-height: 40px;
     }
     p {
       display: inline-block;
@@ -40,7 +38,7 @@
     align-items: center;
     background-color: $gray-color-3;
     padding: 0.5rem 1rem;
-    font-size: 0.825rem;
+    font-size: $font-size-tiny;
     .item-timestamp,
     .item-functions {
       span {
@@ -49,7 +47,7 @@
     }
     .item-functions {
       button {
-        font-size: 0.825rem;
+        font-size: $font-size-tiny;
         color: $base-color;
       }
     }
