@@ -4,14 +4,14 @@ html,
 body {
   font-family: "Noto Sans KR", sans-serif;
   font-weight: $font-weight-regular;
-  font-size: 14px;
+  font-size: 16px;
   letter-spacing: 0;
   background-color: $primary-color;
   color: $base-color;
   line-height: 1.4;
 
-  @media #{$breakpoint-desktop} {
-    font-size: 16px;
+  @media #{$breakpoint-mobile} {
+    font-size: 14px;
   }
 }
 
