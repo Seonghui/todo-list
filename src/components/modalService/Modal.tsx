@@ -1,16 +1,16 @@
-import React, { Component } from 'react';
-import { render } from 'react-dom';
+import React, { Component } from "react";
+import { render } from "react-dom";
 
 let resolve: Function;
 
 const defaultProps = {
-  title: '확인',
-  message: '정말 실행하시겠습니까?'
+  title: "확인",
+  message: "정말 실행하시겠습니까?"
 };
 
 class Modal extends Component<ModalProps, ModalState> {
   static create(props = {}) {
-    const containerElement = document.createElement('div');
+    const containerElement = document.createElement("div");
     document.body.appendChild(containerElement);
     return render(<Modal createConfirmProps={props} />, containerElement);
   }
@@ -20,31 +20,31 @@ class Modal extends Component<ModalProps, ModalState> {
 
     this.state = {
       isOpen: false,
-      showConfirmProps: {},
+      showConfirmProps: {}
     };
   }
 
   handleCancel = () => {
     this.setState({ isOpen: false });
     resolve(false);
-  }
+  };
 
   handleConfirm = () => {
     this.setState({ isOpen: false });
     resolve(true);
-  }
+  };
 
   show = (props = {}) => {
     const showConfirmProps = { ...this.props.createConfirmProps, ...props };
     this.setState({ isOpen: true, showConfirmProps });
-    return new Promise((res) => {
+    return new Promise(res => {
       resolve = res;
     });
-  }
+  };
 
   render() {
     const { isOpen, showConfirmProps } = this.state;
-    const { message, title } = showConfirmProps;
+    const { message, title, isAlert } = showConfirmProps;
     return (
       <React.Fragment>
         {isOpen && (
@@ -58,8 +58,20 @@ class Modal extends Component<ModalProps, ModalState> {
                   <p>{message || defaultProps.message}</p>
                 </section>
                 <footer className="modal-footer">
-                  <button className="button" onClick={this.handleConfirm}>확인</button>
-                  <button className="button" onClick={this.handleCancel}>취소</button>
+                  <button
+                    className="primary button"
+                    onClick={this.handleConfirm}
+                  >
+                    확인
+                  </button>
+                  {!isAlert && (
+                    <button
+                      className="secondary button"
+                      onClick={this.handleCancel}
+                    >
+                      취소
+                    </button>
+                  )}
                 </footer>
               </div>
             </div>

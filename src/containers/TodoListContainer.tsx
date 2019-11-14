@@ -28,22 +28,38 @@ const TodoListContainer: React.FC<TodoListContainerProps> = ({
     TodosActions.toggle(selectedTodo);
   };
 
-  const editTodo: EditTodo = (selectedTodo, input) => {
-    TodosActions.edit(selectedTodo, input);
+  const editTodo: EditTodo = async (selectedTodo, input) => {
+    if (input.trim()) {
+      TodosActions.edit(selectedTodo, input);
+    } else {
+      await (modalService as any).show({
+        title: "알림",
+        message: "공백은 입력하실 수 없습니다.",
+        isAlert: true
+      });
+    }
   };
 
   const deleteTodo: DeleteTodo = async selectedTodo => {
     const result = await (modalService as any).show({
-      message: '정말 삭제하시겠습니까?'
+      message: "정말 삭제하시겠습니까?",
+      isAlert: false
     });
     if (result) {
       TodosActions.remove(selectedTodo);
     }
-
   };
 
-  const addTodo: AddTodo = input => {
-    TodosActions.create(input);
+  const addTodo: AddTodo = async input => {
+    if (input.trim()) {
+      TodosActions.create(input);
+    } else {
+      await (modalService as any).show({
+        title: "알림",
+        message: "공백은 입력하실 수 없습니다.",
+        isAlert: true
+      });
+    }
   };
 
   const changeInput: ChangeTodo = input => {

@@ -18,9 +18,7 @@ export const AddTodoForm: React.FC<AddtodoFormProps> = ({
 
   const handleSubmit = (e: FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    if (input.trim()) {
-      addTodo(input.trim());
-    }
+    addTodo(input);
   };
 
   return (

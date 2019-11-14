@@ -56,7 +56,9 @@ export const TodoListItem: React.FC<TodoListItemProps> = ({
   const handleEdit = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
     editTodo(todo, newText);
-    setIsEditing(!isEditing);
+    if (newText.trim()) {
+      setIsEditing(!isEditing);
+    }
   };
 
   const handleToggleEdit = (e: React.MouseEvent<HTMLElement>) => {
