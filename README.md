@@ -1,44 +1,45 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# To do List
 
-## Available Scripts
+카카오모빌리티 신규 웹 서비스 Front-end 개발 Homework
 
-In the project directory, you can run:
+## 사용 기술 및 주요 디펜던시
 
-### `npm start`
+- React
+- Typescript
+- Redux
+- SASS(SCSS)
+- Jest
+- Moment
+- React-icons
+- uuid
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+아이콘은 Font Awesome(CC BY 4.0 License) 사용하였습니다.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## 실행 방법
 
-### `npm test`
+```bash
+npm install
+npm start
+```
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 작업 내용
 
-### `npm run build`
+- 플러스(+) 버튼을 누르면 "할 일"이 추가됩니다.
+  - 공백은 입력할 수 없습니다.
+  - 공백 입력 시에는 알림 모달이 뜹니다.
+  - "할 일"은 엔터로 개행이 가능합니다.
+- 최신 "할 일"이 가장 위에 노출됩니다.
+  - "할 일"이 많아질 경우, 스크롤이 생겨 아래로 밀려난 "할 일"을 확인할 수 있습니다.
+  - "완료된 일"은 아랫 쪽으로 정렬됩니다.
+- "할 일"은 체크박스를 클릭해 완료할 수 있습니다.
+- 전체, 미완료, 완료 필터링이 가능합니다.
+- "할 일"과 "완료된 일"은 수정이 가능합니다.
+  - 공백 상태로 저장할 경우 알림 모달이 뜹니다.
+- "완료된 일"은 완전 삭제가 가능합니다.
+  - 삭제 버튼을 클릭할 경우 삭제 확인 모달이 뜹니다.
+- 리스트는 LocalStorage에 저장됩니다.
+- 모바일 대응했습니다. (최소 아이폰 6)
+- Jest를 활용해 Redux 테스트 코드를 작성하였습니다.
+- CSS 직접 작성했습니다.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+감사합니다.
