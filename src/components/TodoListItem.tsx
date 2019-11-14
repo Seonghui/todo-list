@@ -64,15 +64,6 @@ export const TodoListItem: React.FC<TodoListItemProps> = ({
   const handleToggleEdit = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
     setIsEditing(!isEditing);
-
-    const { current } = ref;
-    if (current) {
-      const len = current.value.length;
-      current.style.height = `${current.scrollHeight}px`;
-      current.focus();
-      // 커서를 맨 끝으로 이동
-      current.setSelectionRange(len, len);
-    }
   };
 
   const handleCancel = (e: React.MouseEvent<HTMLElement>) => {
