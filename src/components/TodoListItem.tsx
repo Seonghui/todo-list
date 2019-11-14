@@ -91,6 +91,8 @@ export const TodoListItem: React.FC<TodoListItemProps> = ({
           className="checkbox"
         />
         <label htmlFor={todo.id}></label>
+
+        {/* 수정 모드일 때 textArea 노출 */}
         {isEditing ? (
           <textarea
             className="textarea"
@@ -108,6 +110,8 @@ export const TodoListItem: React.FC<TodoListItemProps> = ({
           <FaClock />
           <span>{moment(todo.date).format("YYYY년 MM월 DD일 HH시 mm분")}</span>
         </p>
+
+        {/* 수정 모드일 때 완료/취소 버튼 노출 */}
         {isEditing && (
           <div className="item-functions">
             <button onClick={handleEdit}>
@@ -120,12 +124,16 @@ export const TodoListItem: React.FC<TodoListItemProps> = ({
             </button>
           </div>
         )}
+
+        {/* 수정 모드가 아닐 때 수정 버튼 노출 */}
         {!isEditing && (
           <div className="item-functions">
             <button onClick={handleToggleEdit}>
               <FaEdit />
               <span>수정</span>
             </button>
+
+            {/* 수정 모드가 아니면서 완료된 Todo일 때 삭제 버튼 노출 */}
             {todo.complete && (
               <button onClick={() => deleteTodo(todo)}>
                 <FaTrashAlt />

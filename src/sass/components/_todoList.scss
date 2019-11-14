@@ -1,3 +1,13 @@
-ul.todo-list {
-  margin-top: 2rem;
+.todo-list {
+  overflow: scroll;
+  height: calc(100% - 8rem);
+  padding: 0 2rem;
+  .todo-none-text {
+    padding: 2rem 0;
+    text-align: center;
+    font-size: 1.2rem;
+  }
+  ul {
+    margin-top: 2rem;
+  }
 }

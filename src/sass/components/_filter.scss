@@ -1,14 +1,16 @@
 .todo-filter {
   display: flex;
   justify-content: center;
+  padding: 0 2rem;
   button {
     width: 7rem;
     height: 2rem;
     background-color: $white;
-    border-radius: 5px;
+    border-radius: $base-radius;
     color: $primary-color;
     font-size: 1rem;
     font-weight: 500;
+    transition: all 0.1s;
 
     &.active {
       background-color: $primary-color;
