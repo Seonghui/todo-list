@@ -2,16 +2,13 @@
 
 카카오모빌리티 신규 웹 서비스 Front-end 개발 Homework
 
-## 사용 기술 및 주요 디펜던시
+## 사용 기술
 
 - React
 - Typescript
 - Redux
 - SASS(SCSS)
 - Jest
-- Moment
-- React-icons
-- uuid
 
 아이콘은 Font Awesome(CC BY 4.0 License) 사용하였습니다.
 
