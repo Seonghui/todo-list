@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent } from "react";
+import React, { useState, ChangeEvent, useEffect, useRef } from "react";
 import moment from "moment";
 
 interface TodoListItemProps {
@@ -7,6 +7,7 @@ interface TodoListItemProps {
   editTodo: EditTodo;
   deleteTodo: DeleteTodo;
 }
+
 
 export const TodoListItem: React.FC<TodoListItemProps> = ({
   todo,
@@ -17,8 +18,26 @@ export const TodoListItem: React.FC<TodoListItemProps> = ({
   const [newText, setNewText] = useState(todo.text);
   const [isEditing, setIsEditing] = useState(false);
 
+  const ref = useRef<HTMLTextAreaElement>(null);
+
+  useEffect(() => {
+    const { current } = ref;
+    if (current) {
+      current.style.height = `${current.scrollHeight}px`
+    }
+  })
+
   const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
-    setNewText(e.target.value);
+    const { value, scrollHeight } = e.target;
+    const { current } = ref;
+
+    setNewText(value);
+
+    // textarea 스크롤 길이 변경
+    if (current) {
+      current.style.height = 'auto'
+      current.style.height = `${scrollHeight}px`
+    }
   };
 
   const handleEdit = (e: React.MouseEvent<HTMLElement>) => {
@@ -49,7 +68,12 @@ export const TodoListItem: React.FC<TodoListItemProps> = ({
         />
         <label htmlFor={todo.id}></label>
         {isEditing ? (
-          <textarea className="textarea" value={newText} onChange={handleChange} />
+          <textarea
+            className="textarea"
+            value={newText}
+            onChange={handleChange}
+            ref={ref}
+          />
         ) : (
             <span>{todo.text}</span>
           )}

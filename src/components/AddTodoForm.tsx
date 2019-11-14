@@ -23,7 +23,7 @@ export const AddTodoForm: React.FC<AddtodoFormProps> = ({
   };
 
   return (
-    <form className="form">
+    <form className="form add-todo-form">
       <textarea
         className="textarea"
         value={input}

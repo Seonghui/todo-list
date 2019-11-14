@@ -6,8 +6,6 @@
 }
 .textarea {
   width: 100%;
-  font-size: 1.5rem;
-  padding: 0.25rem 0;
 }
 
 // checkbox
@@ -18,9 +16,10 @@
 
 .checkbox + label {
   position: relative;
-  display: block;
-  padding-left: 30px;
+  display: inline-block;
   cursor: pointer;
+  width: 18px;
+  height: 18px;
 
   &:hover {
     &:before {
@@ -34,8 +33,8 @@
     top: 0;
     left: 0;
     display: inline-block;
-    width: 18px;
-    height: 18px;
+    width: 100%;
+    height: 100%;
     content: "";
     border: 1px solid $primary-color;
   }

@@ -2,11 +2,18 @@
   background-color: $gray-color-2;
   .item-header {
     padding: 1rem;
+    display: flex;
+    justify-content: flex-start;
+    textarea {
+      font-size: 1rem;
+      resize: none;
+      text-decoration: underline;
+    }
     span {
       display: inline-block;
       width: calc(100% - 2rem);
       height: auto;
-      padding-left: 2rem;
+      padding-left: 1rem;
       white-space:pre
     }
     &.complete {
