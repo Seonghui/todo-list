@@ -1,5 +1,6 @@
 .todo-list {
-  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: scroll;
   height: calc(100% - 8rem);
   padding: 0 2rem;
   .todo-none-text {

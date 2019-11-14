@@ -32,3 +32,6 @@ input[type="submit"] {
   @extend %reset-form;
   cursor: pointer;
 }
+button::-moz-focus-inner {
+  border: 0;
+}

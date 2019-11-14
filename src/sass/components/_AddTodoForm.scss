@@ -3,6 +3,7 @@ form.add-todo-form {
   padding: 1rem 2rem;
   box-shadow: 0px 4px 10px -8px $base-color;
   textarea {
+    -ms-overflow-style: none;
     background-color: $white;
     font-size: $font-size-base;
     padding: 0.5rem;
