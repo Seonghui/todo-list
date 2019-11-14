@@ -16,3 +16,12 @@ type EditTodo = (selectedTodo: Todo, text: string) => void;
 type ChangeTodo = (input: string) => void;
 
 type ClickFilter = (input: string) => void;
+
+type ModalProps = {
+  createConfirmProps: object;
+}
+
+type ModalState = {
+  isOpen: boolean;
+  showConfirmProps: any;
+}

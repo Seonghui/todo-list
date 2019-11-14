@@ -4,9 +4,10 @@ import { bindActionCreators } from "redux";
 import { StoreState } from "../store/modules";
 import { todosActions } from "../store/modules/todos";
 import { filterActions } from "../store/modules/filter";
-import { TodoList } from "../TodoList";
-import { AddTodoForm } from "../AddTodoForm";
-import { TodoFilter } from "../TodoFilter";
+import { TodoList } from "../components/TodoList";
+import { AddTodoForm } from "../components/AddTodoForm";
+import { TodoFilter } from "../components/TodoFilter";
+import modalService from "../components/modalService";
 
 interface TodoListContainerProps {
   todoItems: Array<Todo>;
@@ -31,8 +32,14 @@ const TodoListContainer: React.FC<TodoListContainerProps> = ({
     TodosActions.edit(selectedTodo, input);
   };
 
-  const deleteTodo: DeleteTodo = selectedTodo => {
-    TodosActions.remove(selectedTodo);
+  const deleteTodo: DeleteTodo = async selectedTodo => {
+    const result = await (modalService as any).show({
+      message: '정말 삭제하시겠습니까?'
+    });
+    if (result) {
+      TodosActions.remove(selectedTodo);
+    }
+
   };
 
   const addTodo: AddTodo = input => {
