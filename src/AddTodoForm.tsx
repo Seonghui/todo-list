@@ -12,8 +12,9 @@ export const AddTodoForm: React.FC<AddtodoFormProps> = ({
   changeInput,
   input
 }) => {
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
     changeInput(e.target.value);
+    console.log(e.target.value);
   };
 
   const handleSubmit = (e: FormEvent<HTMLButtonElement>) => {
@@ -23,11 +24,11 @@ export const AddTodoForm: React.FC<AddtodoFormProps> = ({
 
   return (
     <form className="form">
-      <input
-        className="input-text"
-        type="text"
+      <textarea
+        className="textarea"
         value={input}
         onChange={handleChange}
+        placeholder="할 일을 입력해 주세요."
       />
       <button className="button" type="submit" onClick={handleSubmit}>
         <FaPlus />

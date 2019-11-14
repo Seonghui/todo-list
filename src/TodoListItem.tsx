@@ -17,7 +17,7 @@ export const TodoListItem: React.FC<TodoListItemProps> = ({
   const [newText, setNewText] = useState(todo.text);
   const [isEditing, setIsEditing] = useState(false);
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
     setNewText(e.target.value);
   };
 
@@ -49,10 +49,10 @@ export const TodoListItem: React.FC<TodoListItemProps> = ({
         />
         <label htmlFor={todo.id}></label>
         {isEditing ? (
-          <input type="text" value={newText} onChange={handleChange} />
+          <textarea className="textarea" value={newText} onChange={handleChange} />
         ) : (
-          <span>{todo.text}</span>
-        )}
+            <span>{todo.text}</span>
+          )}
       </div>
       <div className="item-footer">
         <span>{moment(todo.date).format("YYYY년 MM월 DD일 HH시 mm분")}</span>
