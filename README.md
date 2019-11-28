@@ -1,7 +1,5 @@
 # To do List
 
-카카오모빌리티 신규 웹 서비스 Front-end 개발 Homework
-
 ## 사용 기술
 
 - React
@@ -37,6 +35,3 @@ npm start
 - 리스트는 LocalStorage에 저장됩니다.
 - 모바일 대응했습니다. (최소 아이폰 6)
 - Jest를 활용해 Redux 테스트 코드를 작성하였습니다.
-- CSS 직접 작성했습니다.
-
-감사합니다.
