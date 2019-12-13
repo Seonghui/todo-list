@@ -1,17 +1,9 @@
 import React, { ChangeEvent, FormEvent } from "react";
 import { FaPlus } from "react-icons/fa";
+import useAddTodo from "../hooks/useTodos";
 
-interface AddtodoFormProps {
-  input: string;
-  addTodo: AddTodo;
-  changeInput: ChangeTodo;
-}
-
-export const AddTodoForm: React.FC<AddtodoFormProps> = ({
-  addTodo,
-  changeInput,
-  input
-}) => {
+export const AddTodoForm: React.FC = () => {
+  const { addTodo, changeInput, input } = useAddTodo();
   const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
     changeInput(e.target.value);
   };

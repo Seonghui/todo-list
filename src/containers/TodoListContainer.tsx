@@ -65,22 +65,14 @@ const TodoListContainer: React.FC<TodoListContainerProps> = ({
   const changeInput: ChangeTodo = input => {
     TodosActions.changeInput(input);
   };
-
   const clickFilter: ClickFilter = filter => {
     FilterActions.setFilter(filter);
   };
-
   return (
     <div className="container">
-      <TodoFilter clickFilter={clickFilter} filter={filter} />
-      <AddTodoForm addTodo={addTodo} input={input} changeInput={changeInput} />
-      <TodoList
-        todoItems={todoItems}
-        toggleTodo={toggleTodo}
-        editTodo={editTodo}
-        deleteTodo={deleteTodo}
-        filter={filter}
-      />
+      <TodoFilter />
+      <AddTodoForm />
+      <TodoList />
     </div>
   );
 };

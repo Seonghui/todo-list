@@ -1,10 +1,9 @@
-const uuidv4 = require('uuid/v4');
+const uuidv4 = require("uuid/v4");
 
 export interface TodoState {
   todoItems: Array<Todo>;
   input: string;
 }
-
 
 export const CREATE_TODO = "todo/CREATE_TODO";
 export const CHANGE_INPUT = "todo/CHANGE_INPUT";

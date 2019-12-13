@@ -1,14 +1,8 @@
 import React from "react";
+import useFilter from "../hooks/useFilter";
 
-interface TodoFilterProps {
-  clickFilter: ClickFilter;
-  filter: string;
-}
-
-export const TodoFilter: React.FC<TodoFilterProps> = ({
-  clickFilter,
-  filter
-}) => {
+export const TodoFilter: React.FC = () => {
+  const { filter, clickFilter } = useFilter();
   return (
     <div className="todo-filter">
       <button

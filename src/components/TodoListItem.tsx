@@ -1,5 +1,7 @@
 import React, { useState, ChangeEvent, useEffect, useRef } from "react";
 import moment from "moment";
+import useTodos from "../hooks/useTodos";
+
 import {
   FaClock,
   FaEdit,
@@ -15,12 +17,8 @@ interface TodoListItemProps {
   deleteTodo: DeleteTodo;
 }
 
-export const TodoListItem: React.FC<TodoListItemProps> = ({
-  todo,
-  toggleTodo,
-  editTodo,
-  deleteTodo
-}) => {
+export const TodoListItem: React.FC<TodoListItemProps> = ({ todo }) => {
+  const { toggleTodo, deleteTodo, editTodo } = useTodos();
   const [newText, setNewText] = useState(todo.text);
   const [isEditing, setIsEditing] = useState(false);
 
