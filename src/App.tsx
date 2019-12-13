@@ -1,11 +1,15 @@
 import React from "react";
-import TodoListContainers from "./containers/TodoListContainer";
+import { TodoList } from "./components/TodoList";
+import { AddTodoForm } from "./components/AddTodoForm";
+import { TodoFilter } from "./components/TodoFilter";
 
 const App: React.FC = () => {
   return (
-    <React.Fragment>
-      <TodoListContainers />
-    </React.Fragment>
+    <div className="container">
+      <TodoFilter />
+      <AddTodoForm />
+      <TodoList />
+    </div>
   );
 };
 
