@@ -3,7 +3,7 @@ import { TodoListItem } from "./TodoListItem";
 import useTodos from "../hooks/useTodos";
 import useFilter from "../hooks/useFilter";
 
-export const TodoList: React.FC = ({}) => {
+export const TodoList: React.FC = () => {
   const { todoItems, toggleTodo, editTodo, deleteTodo } = useTodos();
   const { filter } = useFilter();
   const completedItems = todoItems.filter(todo => todo.complete);

@@ -1,6 +1,7 @@
 import React, { useState, ChangeEvent, useEffect, useRef } from "react";
 import moment from "moment";
 import useTodos from "../hooks/useTodos";
+import modalService from "../components/modalService";
 
 import {
   FaClock,
@@ -51,11 +52,28 @@ export const TodoListItem: React.FC<TodoListItemProps> = ({ todo }) => {
     e.target.style.height = `${height}px`;
   };
 
-  const handleEdit = (e: React.MouseEvent<HTMLElement>) => {
+  const handleEdit = async (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
-    editTodo(todo, newText);
     if (newText.trim()) {
+      editTodo(todo, newText);
       setIsEditing(!isEditing);
+    } else {
+      await (modalService as any).show({
+        title: "알림",
+        message: "공백은 입력하실 수 없습니다.",
+        isAlert: true
+      });
+    }
+  };
+
+  const handleDelete = async (e: React.MouseEvent<HTMLElement>) => {
+    e.preventDefault();
+    const result = await (modalService as any).show({
+      message: "정말 삭제하시겠습니까?",
+      isAlert: false
+    });
+    if (result) {
+      deleteTodo(todo);
     }
   };
 
@@ -69,6 +87,7 @@ export const TodoListItem: React.FC<TodoListItemProps> = ({ todo }) => {
     setIsEditing(!isEditing);
     setNewText(todo.text);
   };
+
   return (
     <li className="todo-list-item">
       <div className={`item-header${todo.complete ? " complete" : ""}`}>
@@ -124,7 +143,7 @@ export const TodoListItem: React.FC<TodoListItemProps> = ({ todo }) => {
 
             {/* 수정 모드가 아니면서 완료된 Todo일 때 삭제 버튼 노출 */}
             {todo.complete && (
-              <button onClick={() => deleteTodo(todo)}>
+              <button onClick={handleDelete}>
                 <FaTrashAlt />
                 <span>삭제</span>
               </button>

@@ -31,5 +31,13 @@ export default function useTodos() {
     [dispatch]
   );
 
-  return { todoItems, input, addTodo, toggleTodo, deleteTodo, editTodo, changeInput };
+  return {
+    todoItems,
+    input,
+    addTodo,
+    toggleTodo,
+    deleteTodo,
+    editTodo,
+    changeInput
+  };
 }
