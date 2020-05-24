@@ -8,7 +8,7 @@ export default function useFilter() {
   const filter = useSelector((state: StoreState) => state.filter.filterType);
 
   const clickFilter = useCallback(
-    filter => dispatch(filterActions.setFilter(filter)),
+    (filter) => dispatch(filterActions.setFilter(filter)),
     [dispatch]
   );
 

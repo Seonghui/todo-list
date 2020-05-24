@@ -1,10 +1,11 @@
 import React, { ChangeEvent, FormEvent } from "react";
 import { FaPlus } from "react-icons/fa";
 import useAddTodo from "../hooks/useTodos";
-import modalService from "../components/modalService";
+import useAlert from "../hooks/useAlert";
 
 export const AddTodoForm: React.FC = () => {
   const { addTodo, changeInput, input } = useAddTodo();
+  const { openAlert } = useAlert();
 
   const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
     changeInput(e.target.value);
@@ -15,10 +16,9 @@ export const AddTodoForm: React.FC = () => {
     if (input.trim()) {
       addTodo(input);
     } else {
-      await (modalService as any).show({
+      openAlert({
         title: "알림",
         message: "공백은 입력하실 수 없습니다.",
-        isAlert: true
       });
     }
   };

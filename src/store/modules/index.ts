@@ -1,13 +1,19 @@
 import { combineReducers } from "redux";
-import { TodoState, todosReducer as todos } from "./todos";
-import { FilterState, filterReducer as filter } from "./filter";
+import { TodoState, todosReducer } from "./todos";
+import { FilterState, filterReducer } from "./filter";
+import { ModalState, modalReducer } from "./modal";
+import { AlertState, alertReducer } from "./alert";
 
 export interface StoreState {
   todos: TodoState;
   filter: FilterState;
+  modal: ModalState;
+  alert: AlertState;
 }
 
 export default combineReducers<StoreState>({
-  todos,
-  filter
+  todos: todosReducer,
+  filter: filterReducer,
+  modal: modalReducer,
+  alert: alertReducer,
 });

@@ -19,9 +19,11 @@ type ClickFilter = (input: string) => void;
 
 type ModalProps = {
   createConfirmProps: object;
-}
+};
 
 type ModalState = {
   isOpen: boolean;
   showConfirmProps: any;
-}
+};
+
+type Nullable<T> = T | null;

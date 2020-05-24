@@ -1,15 +1,17 @@
 import React, { useState, ChangeEvent, useEffect, useRef } from "react";
 import moment from "moment";
 import useTodos from "../hooks/useTodos";
-import modalService from "../components/modalService";
 
 import {
   FaClock,
   FaEdit,
   FaTrashAlt,
   FaCheckCircle,
-  FaTimesCircle
+  FaTimesCircle,
 } from "react-icons/fa";
+import useModal from "../hooks/useModal";
+import DeleteTodoItemDialog from "./modals/DeleteTodoItemModal";
+import useAlert from "../hooks/useAlert";
 
 interface TodoListItemProps {
   todo: Todo;
@@ -19,7 +21,9 @@ interface TodoListItemProps {
 }
 
 export const TodoListItem: React.FC<TodoListItemProps> = ({ todo }) => {
-  const { toggleTodo, deleteTodo, editTodo } = useTodos();
+  const { toggleTodo, editTodo } = useTodos();
+  const { openModal } = useModal();
+  const { openAlert } = useAlert();
   const [newText, setNewText] = useState(todo.text);
   const [isEditing, setIsEditing] = useState(false);
 
@@ -58,23 +62,19 @@ export const TodoListItem: React.FC<TodoListItemProps> = ({ todo }) => {
       editTodo(todo, newText);
       setIsEditing(!isEditing);
     } else {
-      await (modalService as any).show({
+      openAlert({
         title: "알림",
         message: "공백은 입력하실 수 없습니다.",
-        isAlert: true
       });
     }
   };
 
   const handleDelete = async (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
-    const result = await (modalService as any).show({
-      message: "정말 삭제하시겠습니까?",
-      isAlert: false
+    openModal({
+      title: "알림",
+      content: <DeleteTodoItemDialog todo={todo} />,
     });
-    if (result) {
-      deleteTodo(todo);
-    }
   };
 
   const handleToggleEdit = (e: React.MouseEvent<HTMLElement>) => {

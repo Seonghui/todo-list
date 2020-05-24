@@ -1,6 +1,6 @@
 import modules, { StoreState } from "./modules";
 import { createStore, Store } from "redux";
-import { loadState, saveState } from '../utils/localStorage'
+import { loadState, saveState } from "../utils/localStorage";
 
 export default function configureStore(): Store<StoreState> {
   const persistedState = loadState();
@@ -8,15 +8,15 @@ export default function configureStore(): Store<StoreState> {
     modules,
     persistedState,
     (window as any).__REDUX_DEVTOOLS_EXTENSION__ &&
-    (window as any).__REDUX_DEVTOOLS_EXTENSION__()
+      (window as any).__REDUX_DEVTOOLS_EXTENSION__()
   );
 
   store.subscribe(() => {
     saveState({
       todos: {
-        input: '',
-        todoItems: store.getState().todos.todoItems
-      }
+        input: "",
+        todoItems: store.getState().todos.todoItems,
+      },
     });
   });
   return store;
